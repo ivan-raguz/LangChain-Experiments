@@ -1,13 +1,14 @@
 import requests
 
-# Replace with your unqiue URL
-API_URL = "http://localhost:3050/api/v1/prediction/6d10d556-c167-4911-8cdf-d22e63a03c3a"
-
+API_URL = "http://localhost:3050/api/v1/prediction/1272fc8f-e29f-4130-b139-e4efba77bea9"
 
 def query(payload):
     response = requests.post(API_URL, json=payload)
-    print(response.json())
     return response.json()
+    
+output = query({
+    "question": "Hey, how are you?",
+})
 
 
 output = query(
