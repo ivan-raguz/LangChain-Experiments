@@ -8,6 +8,10 @@ on:
   push:
     branches:
       - main
+    paths: #redeploy if following are changed on backend: 
+      - 'slack/**'
+      - 'requirements.txt'
+      - 'startup.txt'
   workflow_dispatch:
 
 jobs:
@@ -20,7 +24,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v1
         with:
-          python-version: '3.11'
+          python-version: '3.11.4'
 
       - name: Create and start virtual environment
         run: |
